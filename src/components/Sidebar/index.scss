@@ -1,0 +1,10 @@
+.sidebar {
+  padding-left: 0;
+  list-style: none;
+  & a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: left;
+  }
+}

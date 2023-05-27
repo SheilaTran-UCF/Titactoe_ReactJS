@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
+import LearnProps from "./pages/LearnProps";
+import LearnUseEffect from "./pages/LearnUseEffect";
+import LearnUseReducer from "./pages/LearnUseReducer";
+import LearnUseState from "./pages/LearnUseState";
+import TicTacToe from "./pages/TicTacToe";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <div className="d-flex">
+          <div className="col-3">
+            <Sidebar />
+          </div>
+          <div className="col-9">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/props" element={<LearnProps />} />
+              <Route path="/state" element={<LearnUseState />} />
+              <Route path="/effect" element={<LearnUseEffect />} />
+              <Route path="/reducer" element={<LearnUseReducer />} />
+              <Route path="/tictactoe" element={<TicTacToe />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
